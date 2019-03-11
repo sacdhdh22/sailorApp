@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" type="text/css" ref="bower_components/bootstrap/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" ref="bower_components/angular-material/angular-material.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.js"></script>
+    <script src='bower_components/spin.js/spin.js'></script>
+    <script src='bower_components/angular-spinner/angular-spinner.js'></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <script src="js/app.js"></script>
+    <script src="js/controller/surveyController.js"></script>
+</head>
+<body ng-app="sailor">
+<div ng-controller="boatController">
+
+    <nav class="navbar navbar-inverse bg-primary">
+        <div class="container">
+        
+        </div>
+    </nav>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8 well">
+
+              
+              <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                          <md-button class="md-raised" type= "button" ng-click= "getSailorReservation()" >Sailor Reservation</md-button>
+                        <md-button class="md-raised" type= "button" ng-click= "getBoatReservation()">
+                            Boat Reservation</md-button>
+
+                      </section>
+             
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+      </br>
+        <div class="row" ng-hide= "sailor">
+            <div class="col-lg-2">
+            </div>
+
+            <div class="col-lg-8">
+                <label for="name">Sailor Name :</label>
+                     <p><input type="text" ng-model="name" class="form-control" ></p>
+                      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                          <md-button class="md-raised md-primary" type= "button" ng-click= "getData(name)" >Submit</md-button>
+
+                      </section>
+                      <div>
+                
+
+                       <table class="table table-condensed" >
+                        <thead>
+                          <tr>
+                        
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="x in names | filter:name" class="list-group-item">
+                            <td> {{x}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                       <div>
+                          <label for="name">Sailor Reservation :</label>
+                           <table class="table table-condensed" >
+                        <thead>
+                          <tr>
+                            <th>Boat Name </th>
+                            <th>BoatId</th>
+                            <th>Reservation Date</th>
+                          </tr>
+                          <tr ng-repeat="reservation in reservations" >
+                            <td> {{reservation.BoatId.BoatName}}</td>
+
+                              <td> {{reservation.BoatId.BoatId}}</td>
+                                <td> {{reservation.Day}}</td>
+                          </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                
+
+                                    </div>
+                               
+                              
+                        </div>
+                    </div>
+                  </br>
+            </div>
+
+
+<div class="row"  ng-hide= "boat">
+            <div class="col-lg-2">
+            </div>
+
+            <div class="col-lg-8">
+                <label for="name">Boat Name :</label>
+                     <p><input type="text" ng-model="boatName" class="form-control" ></p>
+                      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                          <md-button class="md-raised md-primary" type= "button" ng-click= "getBoatData(boat)" >Submit</md-button>
+
+                      </section>
+                      <div>
+                
+
+                       <table class="table table-condensed" >
+                        <thead>
+                          <tr>
+                        
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="x in boatnames | filter:boatName" class="list-group-item">
+                            <td> {{x}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                       <div>
+                          <label for="name">Boat Reservation :</label>
+                           <table class="table table-condensed" >
+                        <thead>
+                          <tr>
+                            <th>Sailor Name </th>
+                            <th>Sailor</th>
+                            <th>Reservation Date</th>
+                          </tr>
+                          <tr ng-repeat="reservation in boatreservations" >
+                           
+                                 <td> {{reservation.SailorId.SailorName}}</td>
+
+                              <td> {{reservation.SailorId.SailorId}}</td>
+                                <td> {{reservation.Day}}</td>
+                          </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                
+
+                        </div>
+                   
+                  
+            </div>
+        </div>
+      </br>
+</div>
+
+
+</body>
+</html>

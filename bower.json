@@ -1,0 +1,8 @@
+{
+  "name": "sailor App",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.7"
+  }
+}
