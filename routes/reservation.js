@@ -72,7 +72,8 @@ module.exports = {
     ],function(err, data){
       if(err){
         console.log(err);
-        callback(err, false)
+    
+        res.status(500).send("Failed");
       }
       else{
         var response = {
@@ -91,7 +92,8 @@ module.exports = {
     ],function(err, data){
       if(err){
         console.log(err);
-        callback(err, false)
+ 
+        res.status(500).send("Failed");
       }
       else{
         var response = {
@@ -107,6 +109,10 @@ module.exports = {
 
 
 function getAllBoatReservation(data, callback){
+  if(data == null){
+    callback("err", false);
+      return 0;
+  }
   Reservation.findAllBoatReservation(data._id, function(err, data){
     if(err){
       console.log(err);
@@ -120,7 +126,13 @@ function getAllBoatReservation(data, callback){
 
 
 function getAllReservation(data, callback){
-  console.log(data)
+
+    if(data == null){
+      console.log("ewjudweui")
+    callback("err", false);
+    return 0;
+  }
+
   Reservation.findAllReservation(data._id, function(err, data){
     if(err){
       console.log(err);

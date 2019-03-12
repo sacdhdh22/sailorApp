@@ -7,7 +7,7 @@ var server = function(){
 };
 
 server.prototype.init = function(callback){
-    mongoose.connect(config.mongoURI,{ useNewUrlParser: true },function(error, db){
+    mongoose.connect(config.mongoURIM,{ useNewUrlParser: true },function(error, db){
 		if(error){
 		   console.log("Oops! Connection Failed! " + error);
 		   callback(error);

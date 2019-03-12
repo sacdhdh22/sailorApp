@@ -12,10 +12,15 @@ app.controller('boatController', function($scope, $http, $mdToast,usSpinnerServi
      $scope.getSailorReservation = function(){ 
        $scope.sailor = false;
        $scope.boat = true;
+       $scope.boatName = ""
+        $scope.name = ""
+
     }
       $scope.getBoatReservation  = function(){
        $scope.sailor = true;
-    $scope.boat = false;
+       $scope.boat = false;
+             $scope.boatName = ""
+        $scope.name = ""
     }
     usSpinnerService.spin('spinner-1');
     $http.get('/getAllSailors') .then(function(data){
@@ -25,8 +30,9 @@ app.controller('boatController', function($scope, $http, $mdToast,usSpinnerServi
               $http.post('/getAllReservation',  { sailorName: $scope.name}).then(function(data){
                 console.log(data.data)
                 $scope.reservations = data.data
+              },function(response){
+                   $scope.reservations = ""
               })
-
             }
     });
 
@@ -38,6 +44,8 @@ app.controller('boatController', function($scope, $http, $mdToast,usSpinnerServi
                 console.log(data.data)
                 $scope.boatreservations = data.data
                 console.log($scope.boatreservations)
+              },function(response){
+                   $scope.boatreservations = ""
               })
 
             }

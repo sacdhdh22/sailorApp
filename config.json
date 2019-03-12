@@ -1,3 +1,4 @@
 {
-  "mongoURI" : "mongodb://127.0.0.1:27017/sailorApp"
+  "mongoURI" : "mongodb://127.0.0.1:27017/sailorApp",
+  "mongoURIM" : "mongodb+srv://admin:admin@cluster0-2qrfv.mongodb.net/test?retryWrites=true"
 }
