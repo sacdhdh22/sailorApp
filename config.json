@@ -1,4 +1,5 @@
 {
   "mongoURI" : "mongodb://127.0.0.1:27017/sailorApp",
-  "mongoURIM" : "mongodb+srv://admin:admin@cluster0-2qrfv.mongodb.net/test?retryWrites=true"
+  "mongoURIM" : "mongodb+srv://admin:admin@cluster0-2qrfv.mongodb.net/test?retryWrites=true",
+  "m" : "mongodb://admin:admin@ds159776.mlab.com:59776/shopalyst"
 }
